@@ -2,49 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>倒计时</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <title>下半年节假日</title>
 </head>
 <style>
-body,ul,ol,h1,h2,h3,h4,h5,h6,p,input,select,textarea,dl,dd{margin: 0;padding: 0;}
-ul,ol{list-style: none;}
-input,select,textarea{background-color: transparent; border: none; outline: none;}
-textarea{resize: none;}
-img{border: none; vertical-align: middle;}
-a{text-decoration: none;}
-em,strong{font-style: normal;}
-.fl{float: left;}
-.fr{float: right;}
-.clearfix:after,.clearfix:before{content: "";display: table;}
-.clearfix:after{clear: both;}
-.clearfix{*zoom:1;}
+    body,ul,ol,h1,h2,h3,h4,h5,h6,p,input,select,textarea,dl,dd{margin: 0;padding: 0;}
+    ul,ol{list-style: none;}
+    input,select,textarea{background-color: transparent; border: none; outline: none;}
+    textarea{resize: none;}
+    img{border: none; vertical-align: middle;}
+    a{text-decoration: none;}
+    em,strong{font-style: normal;}
+    .fl{float: left;}
+    .fr{float: right;}
+    .clearfix:after,.clearfix:before{content: "";display: table;}
+    .clearfix:after{clear: both;}
+    .clearfix{*zoom:1;}
     .box{
-        margin-top: 30%;
+        margin-top: 10%;
         max-width: 640px;
         min-width: 450px;
         margin-right:  auto;
         margin-left:  auto;
     }
     div{
-        width:450px;
-        height: 200px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
+        width:82%;
+        height: 100px;
+        margin:0 auto;
     }
     #xz{
-           bottom: 550px;
            color: skyblue;
-           font-size: 30px;
+           font-size: 1.3rem;
            font-weight: bold;
-           width:456px;
-    }
-    .gq{
-        bottom: 400px;
-    }
-    .yd{
-        bottom:200px;
+           height: 40%;
     }
     h1{
         font-size: 1.5rem;
@@ -58,9 +48,9 @@ em,strong{font-style: normal;}
     em,span{
         font-size: 1rem;
         line-height: 20px;
-        margin: 0 5px;
+        margin: 0 3px;
         display: inline-block;
-        padding: 5px 10px;
+        padding: 2px 5px;
         text-align: center;
         line-height: 30px;
         border-radius: 6px;
@@ -70,32 +60,32 @@ em,strong{font-style: normal;}
 </style>
 <body>
   <div class="box">
-     <div id="xz"></div>
-    <div class="gq">
-         <h1>距离国庆还有：</h1>
-        <span class='d'>00</span><em>天</em>
-        <span class='h'>00</span><em>时</em>
-        <span class='m'>00</span><em>分</em>
-        <span class='s'>00</span><em>秒</em>
-    </div>
-    <div class="yd">
-         <h1>距离元旦还有：</h1>
-        <span class='dd'>00</span><em>天</em>
-        <span class='hh'>00</span><em>时</em>
-        <span class='mm'>00</span><em>分</em>
-        <span class='ss'>00</span><em>秒</em>
-    </div>
-    <div>
-         <h1>距离除夕还有：</h1>
-        <span class='ddd'>00</span><em>天</em>
-        <span class='hhh'>00</span><em>时</em>
-        <span class='mmm'>00</span><em>分</em>
-        <span class='sss'>00</span><em>秒</em>
-    </div>
+        <div id="xz"></div>
+        <div class="gq">
+             <h1>距离国庆还有：</h1>
+             <span class='d'>00</span><em>天</em>
+             <span class='h'>00</span><em>时</em>
+             <span class='m'>00</span><em>分</em>
+             <span class='s'>00</span><em>秒</em>
+        </div>
+        <div class="yd">
+             <h1>距离元旦还有：</h1>
+             <span class='dd'>00</span><em>天</em>
+             <span class='hh'>00</span><em>时</em>
+             <span class='mm'>00</span><em>分</em>
+             <span class='ss'>00</span><em>秒</em>
+        </div>
+        <div>
+             <h1>距离除夕还有：</h1>
+             <span class='ddd'>00</span><em>天</em>
+             <span class='hhh'>00</span><em>时</em>
+             <span class='mmm'>00</span><em>分</em>
+             <span class='sss'>00</span><em>秒</em>
+        </div>
 
     <script src="https://cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
     <script>
-       function  xz(){
+        function  xz(){
             function sh(t1){
                return t1<10?'0'+t1:t1;
             }
@@ -110,52 +100,52 @@ em,strong{font-style: normal;}
                str +=sh(ti.getMinutes())+':';
                str +=sh(ti.getSeconds());
                $('#xz').text(str);     
-       }
-       $('#xz').text(xz);
-       setInterval(xz,1000);
+           }
+           $('#xz').text(xz);
+           setInterval(xz,1000);
 
-       function   djs(e_time,day,hour,fen,miao){
-            var end_time = new Date(e_time);//结束时间
-            var now_time = new Date();//当前时间 
-            var t = end_time.getTime()-now_time.getTime();
-                t = t/1000
-            var d = Math.floor(t/60/60/24);
-            var h = Math.floor(t/60/60%24);
-            var m = Math.floor(t/60%60);
-            var s = Math.floor(t%60); 
-            d = d < 10 ? '0' + d : d;
-            h = h < 10 ? '0' + h : h;
-            m = m < 10 ? '0' + m : m;
-            s = s < 10 ? '0' + s : s;
-            day.text(d);
-            hour.text(h);
-            fen.text(m);
-            miao.text(s);
-        }
+        function   djs(e_time,day,hour,fen,miao){
+                var end_time = new Date(e_time);//结束时间
+                var now_time = new Date();//当前时间 
+                var t = end_time.getTime()-now_time.getTime();
+                    t = t/1000
+                var d = Math.floor(t/60/60/24);
+                var h = Math.floor(t/60/60%24);
+                var m = Math.floor(t/60%60);
+                var s = Math.floor(t%60); 
+                d = d < 10 ? '0' + d : d;
+                h = h < 10 ? '0' + h : h;
+                m = m < 10 ? '0' + m : m;
+                s = s < 10 ? '0' + s : s;
+                day.text(d);
+                hour.text(h);
+                fen.text(m);
+                miao.text(s);
+            }
         function mov(){
-            var js1 = '2018-10-01 00:00:00';
-            var  d1 = $('.d');
-            var  h1 = $('.h');
-            var  m1 = $('.m');
-            var  s1  = $('.s');
-            djs(js1,d1,h1,m1,s1);
+                var js1 = '2018-10-01 00:00:00';
+                var  d1 = $('.d');
+                var  h1 = $('.h');
+                var  m1 = $('.m');
+                var  s1  = $('.s');
+                djs(js1,d1,h1,m1,s1);
 
-            var js2 = '2019-01-01 00:00:00';
-            var  d2 = $('.dd');
-            var  h2 = $('.hh');
-            var  m2 = $('.mm');
-            var  s2 = $('.ss');
-            djs(js2,d2,h2,m2,s2);
+                var js2 = '2019-01-01 00:00:00';
+                var  d2 = $('.dd');
+                var  h2 = $('.hh');
+                var  m2 = $('.mm');
+                var  s2 = $('.ss');
+                djs(js2,d2,h2,m2,s2);
 
-            var js3 = '2019-02-04 00:00:00';
-            var  d3 = $('.ddd');
-            var  h3 = $('.hhh');
-            var  m3 = $('.mmm');
-            var  s3  = $('.sss');
-            djs(js3,d3,h3,m3,s3);
-        }
-        mov();
-        setInterval(mov,1000);
+                var js3 = '2019-02-04 00:00:00';
+                var  d3 = $('.ddd');
+                var  h3 = $('.hhh');
+                var  m3 = $('.mmm');
+                var  s3  = $('.sss');
+                djs(js3,d3,h3,m3,s3);
+            }
+            mov();
+            setInterval(mov,1000);
     </script>
 </body>
 </html>
